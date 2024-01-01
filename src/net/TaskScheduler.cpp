@@ -93,6 +93,7 @@ void TaskScheduler::Wake()
 
 void TaskScheduler::HandleTriggerEvent()
 {
+    std::lock_guard<std::mutex> lock(mutex_);
     do
     {
         TriggerEvent callback;
